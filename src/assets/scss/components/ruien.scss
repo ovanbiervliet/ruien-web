@@ -1,0 +1,42 @@
+// custom global
+@import "foundation-datepicker";
+
+// Source Sans Pro, Source Serif Pro
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Serif+Pro:400,700');
+
+.hero-row {
+  padding-top: $global-margin;
+  background-color: $primary-color;
+}
+
+.title-row {
+  background-color: #000;
+  h1 {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, small), h2), 'font-size') * 1px);
+  }
+
+  h2 {
+    font-family: $body-font-family;
+    font-size: rem-calc(map-get(map-get(map-get($header-styles, small), h1), 'font-size') * 1px);
+    font-weight: bold;
+  }
+}
+
+.title-back {
+  background-color: #fff;
+}
+
+.body-row {
+}
+
+.body-back {
+  padding-top: $global-margin;
+  min-height: rem-calc(240);
+  background-color: $lightest-gray;
+}
+
+.button {
+  font-weight: bold;
+}

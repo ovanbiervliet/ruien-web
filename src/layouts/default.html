@@ -2,18 +2,51 @@
 
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Ruien</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
-  </head>
-  <body>
+</head>
+<body>
+<script src="{{root}}assets/js/foundation-datepicker.min.js"></script>
 
-    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
-    {{> body}}
+{{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+{{> body}}
 
-    <script src="{{root}}assets/js/app.js"></script>
-  </body>
+
+<script src="{{root}}assets/js/app.js"></script>
+<script>
+    $(function () {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        var today = dd + '-' + mm + '-' + yyyy;
+
+        $('.fdatepicker').fdatepicker({
+            startDate: today,
+            format: 'dd-mm-yyyy',
+            disableDblClickSelection: true,
+            leftArrow: '<<',
+            rightArrow: '>>',
+            closeIcon: 'X',
+            weekStart: '1',
+            pickTime: 'false',
+            daysOfWeekDisabled: [1],
+            datesDisabled: [],
+            closeButton: false
+        });
+    });
+</script>
+</body>
 </html>
